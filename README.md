@@ -1,7 +1,5 @@
 # Learning LLM
 
-# LLM Learning
-
 This repository is dedicated to learning about Large Language Models (LLMs) and experimenting with their capabilities. Here, you'll find various resources, code samples, and experiments related to LLMs.
 
 
@@ -42,7 +40,7 @@ The goal is to train a character-based GPT model using the text from `tinyshakes
 ## Upcoming
 
 - [x] Implement charGPT 
-- [ ] Make charGPT code customizable so it can be trained on any data and with any given configurations
+- [ ] Make charGPT code customizable so it can be trained on any given text data and with any given configurations
 - [ ] Implement GPT using tiktoken as tokenizer
 - [ ] Make it possible to load GPT2 weights
 - [ ] Finetune GPT for text classification
