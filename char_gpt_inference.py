@@ -1,14 +1,20 @@
 import torch
 from char_gpt_model import GPTModel
 import torch.nn.functional as F
+import warnings
 
 if __name__ == "__main__":
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    device = "cpu"
+    if torch.backends.mps.is_available():
+        device = torch.device("mps")
 
     model_path = 'model_checkpoints/char_gpt/best_model.pt'
-    checkpoint = torch.load(model_path)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", category=UserWarning)
+        checkpoint = torch.load(model_path, weights_only=False)
+
     
-    print(f"Best model load. It was fount at epoch {checkpoint['epoch']} and step {checkpoint['step']}")
+    print(f"Best model load. It was found at epoch {checkpoint['epoch']} and step {checkpoint['step']}")
 
     model_cfg = checkpoint['cfg']
     tokenizer = checkpoint['tokenizer']
